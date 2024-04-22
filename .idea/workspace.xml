@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c6081e0-41f3-414f-8ab8-5e45f3aa9dec" name="Changes" comment="Push #2&#10;Created managers for Day information and output tools.">
-      <change afterPath="$PROJECT_DIR$/src/Tester.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserCharacter.java" afterDir="false" />
+    <list default="true" id="9c6081e0-41f3-414f-8ab8-5e45f3aa9dec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Day.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EventRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DayEvents.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Tester.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -62,30 +62,6 @@
       <option name="presentableId" value="Default" />
       <updated>1712866100042</updated>
     </task>
-    <task id="LOCAL-00001" summary="Push #2&#10;Created managers for Day information and output tools.">
-      <option name="closed" value="true" />
-      <created>1713755232897</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1713755232897</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Push #2&#10;Created managers for Day information and output tools." />
-    <option name="LAST_COMMIT_MESSAGE" value="Push #2&#10;Created managers for Day information and output tools." />
   </component>
 </project>
