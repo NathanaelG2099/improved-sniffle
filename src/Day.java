@@ -9,6 +9,12 @@ public class Day {
         this.ally = ally;
     }
 
+    public Day(){
+        location = "Nowhere";
+        item = "Nothing";
+        ally = "Alone";
+    }
+
     public void setAlly(String ally) {
         this.ally = ally;
     }
