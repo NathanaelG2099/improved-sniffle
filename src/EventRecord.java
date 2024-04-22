@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 public class EventRecord {
     private Day[] events = new Day[5];
     private int currentDay = 0;
@@ -6,7 +5,7 @@ public class EventRecord {
     public void addEvent(Day newEvent){
         events[currentDay] = newEvent;
         currentDay++;
-        Tools.reader("Your actions will have consequences...", 50);
+        Tools.reader("Your actions will have consequences...");
     }
 
     public String Inventory(){

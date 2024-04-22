@@ -1,8 +1,6 @@
-import java.sql.SQLOutput;
-
 public class Tools {
 
-    //Output a string at a rate of 100ms + newLine
+    //Output a string at a rate of 75ms + newLine
     public static void reader(String str){
         int rate = 100;
 
