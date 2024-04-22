@@ -5,7 +5,7 @@ public class EventRecord {
     public void addEvent(Day newEvent){
         events[currentDay] = newEvent;
         currentDay++;
-        Tools.reader("Your actions will have consequences...");
+        Tools.readerln("Your actions will have consequences...");
     }
 
     public String Inventory(){
