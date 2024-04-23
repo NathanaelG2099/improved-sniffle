@@ -18,4 +18,14 @@ public class EventRecord {
         }
         return output;
     }
+
+    public boolean FindLocation(String key){
+        for(int i = 0; i < currentDay; i++){
+            if(events[i].getLocation().equals(key)) {
+                return true;
+            }
+            }
+        return false;
+        }
+    }
 }
