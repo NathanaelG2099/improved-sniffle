@@ -24,8 +24,8 @@ public class EventRecord {
             if(events[i].getLocation().equals(key)) {
                 return true;
             }
-            }
-        return false;
         }
+        return false;
     }
+
 }
