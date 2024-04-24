@@ -1,7 +1,12 @@
 public class EventRecord {
     private Day[] events = new Day[5];
+    private int money = 0;
     private int currentDay = 0;
+    public UserCharacter userClass;
 
+    public void addClass(UserCharacter input){
+        userClass = input;
+    }
     public void addEvent(Day newEvent){
         events[currentDay] = newEvent;
         currentDay++;
@@ -26,6 +31,18 @@ public class EventRecord {
             }
         }
         return false;
+    }
+
+    public void addMoney(int newFund){
+        money += newFund;
+    }
+
+    public int getMoney(){
+        return money;
+    }
+
+    public void printMoney(){
+        Tools.readerln("Current funds: " + getMoney());
     }
 
 }

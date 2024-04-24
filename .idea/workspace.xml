@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c6081e0-41f3-414f-8ab8-5e45f3aa9dec" name="Changes" comment="Push #5&#10;Finished Introduction Class">
-      <change afterPath="$PROJECT_DIR$/src/EventOne.java" afterDir="false" />
+    <list default="true" id="9c6081e0-41f3-414f-8ab8-5e45f3aa9dec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventOne.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EventRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +27,12 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;NathanaelG2099&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="51f73a4a-a304-49ee-a4c3-e93d3bdab8e0" />
-        <option name="url" value="https://github.com/NathanaelG2099/improved-sniffle.git" />
-      </UrlAndAccount>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Backup" />
+      </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -48,16 +43,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Tester.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Tester.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,48 +69,6 @@
       <option name="presentableId" value="Default" />
       <updated>1712866100042</updated>
     </task>
-    <task id="LOCAL-00001" summary="Push #2&#10;Created managers for Day information and output tools.">
-      <option name="closed" value="true" />
-      <created>1713755232897</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1713755232897</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Push #4&#10;Added Introduction class for first &#10;events.">
-      <option name="closed" value="true" />
-      <created>1713809258305</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1713809258305</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Push #5&#10;Finished Introduction Class">
-      <option name="closed" value="true" />
-      <created>1713819212408</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1713819212408</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Push #2&#10;Created managers for Day information and output tools." />
-    <MESSAGE value="Push #4&#10;Added Introduction class for first &#10;events." />
-    <MESSAGE value="Push #5&#10;Finished Introduction Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Push #5&#10;Finished Introduction Class" />
   </component>
 </project>

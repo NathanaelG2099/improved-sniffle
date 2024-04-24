@@ -28,7 +28,7 @@ public class Tools {
 
     //Output a string at a rate of 75ms + newLine
     public static void readerln(String str){
-        int rate = 50;
+        int rate = 25;
 
         for(int i = 0; i < str.length(); i++){
             System.out.print(str.charAt(i));
@@ -57,4 +57,5 @@ public class Tools {
         System.out.println();
 
     }
+
 }

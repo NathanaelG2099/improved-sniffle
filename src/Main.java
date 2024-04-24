@@ -11,6 +11,7 @@ public class Main {
 
         Introduction.Start();
         UserCharacter userClass = new UserCharacter(scnr);
+        timeline.addClass(userClass);
         Introduction.Start2(userClass);
         Introduction.StartDecision(scnr, day1, timeline);
 

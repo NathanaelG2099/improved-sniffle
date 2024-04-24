@@ -10,9 +10,9 @@ public class Day {
     }
 
     public Day(){
-        location = "Nowhere";
-        item = "Nothing";
-        ally = "Alone";
+        location = "NOWHERE";
+        item = "NOTHING";
+        ally = "ALONE";
     }
 
     public void setAlly(String ally) {
