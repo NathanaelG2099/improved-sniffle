@@ -3,13 +3,17 @@ public class Tester {
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
 
+        //Testing Introduction
+        Introduction.Start();
+
+
+
+
+
+
         //Testing character creation
         UserCharacter charInfo = new UserCharacter(scnr);
         System.out.println(charInfo.getClassType());
-
-
-
-
 
 
         //testing Day System

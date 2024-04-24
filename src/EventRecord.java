@@ -5,7 +5,7 @@ public class EventRecord {
     public void addEvent(Day newEvent){
         events[currentDay] = newEvent;
         currentDay++;
-        Tools.reader("Your actions will have consequences...");
+        Tools.readerln("Your actions will have consequences...");
     }
 
     public String Inventory(){
@@ -18,4 +18,14 @@ public class EventRecord {
         }
         return output;
     }
+
+    public boolean FindLocation(String key){
+        for(int i = 0; i < currentDay; i++){
+            if(events[i].getLocation().equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
