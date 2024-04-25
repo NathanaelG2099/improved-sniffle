@@ -2,20 +2,18 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        UserCharacter charInfo = new UserCharacter("WIZARD");
+        UserCharacter charInfo = new UserCharacter("WARRIOR");
 
         EventRecord timeline = new EventRecord();
         timeline.addClass(charInfo);
 
         Day day1 = new Day();
-        Day day2 = new Day();
-        Day day3 = new Day();
 
 
         //Testing Event 1
         day1.setLocation("TOWN");
         timeline.addEvent(day1);
-        day1.setAlly("ALISON");
+        day1.setAlly("MAGNUS");
 
         EventOne.TownDecision1(scnr, day1, timeline);
         //EventOne.Town1(scnr, day1, timeline);
@@ -31,9 +29,6 @@ public class Tester {
 
 
         //testing Day System
-
-        timeline.addEvent(day1);
-        timeline.addEvent(day2);
 
         System.out.println(timeline.Inventory());
     }

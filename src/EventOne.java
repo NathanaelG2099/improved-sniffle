@@ -84,8 +84,10 @@ public class EventOne {
     }
 
     public static void TownDecision1(Scanner scnr, Day event, EventRecord timeline){
-        int archerChoice = 0;
+        int userChoice = 0;
         boolean decideLoop = true;
+
+        Day day2 = new Day();
 
 
         if(event.getAlly().equals("ALISON")){
@@ -126,8 +128,8 @@ public class EventOne {
                         """);
                 while(decideLoop) {
                     try {
-                        archerChoice = scnr.nextInt();
-                        if(archerChoice > 2 || archerChoice < 1){
+                        userChoice = scnr.nextInt();
+                        if(userChoice > 2 || userChoice < 1){
                             decideLoop = true;
                         } else{
                             decideLoop = false;
@@ -137,7 +139,7 @@ public class EventOne {
                         scnr.nextLine();
                     }
                 }
-                if(archerChoice == 1){
+                if(userChoice == 1){
                     Tools.readerln("""
                             
                             "Fine, take it, you !@#$"
@@ -205,8 +207,13 @@ public class EventOne {
                         agree to meet again tomorrow morning outside the inn at daybreak.
                         """);
             }
+            if (event.getAlly().equals("ALISON")) {
+                day2.setAlly("ALISON");
+                day2.setLocation("CHURCH");
+            }
 
         }else if (event.getAlly().equals("MAGNUS")){
+
             Tools.readerln("""
                     
                     You move towards the young man and pull up a seat. Thanks to the inn's
@@ -215,8 +222,197 @@ public class EventOne {
                     As you start eating, you can't help but silently express your awe at the
                     flavor. There is a clear reason for the inn's spike in business near supper.
                     
+                    "Well I'll be, just look at that reaction!" You suddenly feel a strong force
+                    connect with your back, leading you to a small coughing fit. "Oh, sorry about
+                    that, I just can't help but be glad when I see a traveler appreciate the food
+                    for the masterpiece that it is. The name's Magnus, pleasure to meet 'cha! Now,
+                    what brings you to Bethel?"
                     
+                    You explain to him the circumstances of your stay.
+                    
+                    "Ah, I see. Well, the town hasn't heard of no wizard, but there has been a
+                    rise in monster attacks from that forest for the last few months. Wait, it
+                    wasn't marked on your map? No, there's definitely a forest marked, but it
+                    wasn't supposed to be until another half day's walk, and certainly not that
+                    large. I guess it seems pretty clear that the two might be connected, eh?
+                    
+                    Anyhow, that encounter sounds crazy! The wizard sounds like he doesn't play
+                    fair, but you don't look like a total pushover either. Say, mind if we go
+                    out back for a skirmish? I'm actually quite the battle-junkie, shamed as I
+                    am to say it, and you seem like you want the practice given how that wizard
+                    schooled you. So, what do you say, down for a brawl?
                     """);
+            Tools.readerln("""
+                    
+                    Will you take on the young fighter in a fight? (1 - Accept, 2 - Decline)
+                    """);
+
+            while(decideLoop){
+                try{
+                    userChoice = scnr.nextInt();
+                    if(userChoice > 0 && userChoice < 3){
+                        decideLoop = false;
+                    }
+                } catch (InputMismatchException e){
+                    Tools.readerln("Bad Input. Will you take on the young fighter? (1 - Accept, 2 - Decline)");
+                    scnr.nextLine();
+                }
+            }
+
+            if(userChoice == 2){
+                Tools.readerln("""
+                        "Ah, that's a cryin' shame. Well, I can't blame you for wanting to conserve your
+                        strength, considering the troubles you probably have ahead. Here, take a few
+                        coins, in the worst case they'll help you grab something nice in your time.
+                        Ah would you look at that, usually I'm the first drunkard sleeping on the tables!
+                        Well, I really should head on home to my folks. Good luck with your Wizard!"
+                        
+                        As Magnus leaves, you take note of a few gold coins on the table for you.
+                        It makes sense why he has so many acquaintances here.
+                        """);
+                timeline.addMoney(5);
+                timeline.printMoney();
+                System.out.println();
+                Tools.readerln("""
+                        With new funds acquired, you make your way to the room for a new day.
+                        """);
+                event.setAlly("ALONE");
+            } else {
+                Tools.readerln("""
+                        "That's the spirit! Meet me outside once you finish eating"
+                        
+                        After finishing your meal, you head outside, where Magnus leads you around
+                        to the back with an unusually large wooden sword in his hands. Here, you
+                        see a large dirt area in an oval, prepared for games and brawls.
+                        
+                        "Here's how it's gonna go: We both start at the ends of the field. I'm going
+                        to throw a rock in the air, and whenever it hits the ground, we start.
+                        Go ahead and make your way over!"
+                        
+                        You walk to the edge of the field and find an array of wooden weapons.
+                        After picking one up, you motion to him. He gives you a thumbs-up
+                        and reaches towards the ground, tossing a rock before shouting back.
+                        
+                        "Remember, when the rock hits the ground!!"
+                        
+                        He throws the rock into the air. You both are silent and motionless, staring
+                        up at the small object. Upon hitting the ground, you see him speed forward.
+                        What do you do?
+                        """);
+
+
+                decideLoop = true;
+                while(decideLoop){
+                    if(timeline.userClass.getClassType().equals("WARRIOR")){
+                        Tools.readerln("""
+                            With all your strength, a straightforward approach will work:
+                            (1 - Fearlessly clash swords, 2 - Aim to disarm him)
+                            """);
+                    }else if(timeline.userClass.getClassType().equals("ARCHER")){
+                        Tools.readerln("""
+                            Considering his strength, prevent him from getting to strike:
+                            (1 - Aim to knock him down, 2 - Deliberately let him close, then strike)
+                            """);
+                    }else if(timeline.userClass.getClassType().equals("WIZARD")){
+                        Tools.readerln("""
+                            You magic spells should allow you to safely immobilize him:
+                            (1 - Freeze his approach, 2 - Quietly prepare a close-range shock)
+                            """);
+                    }else{
+                        Tools.readerln("""
+                            This man is no threat, rendering offensive prayers harmless:
+                            (1 - Attempt to empower yourself, 2 - Utilize your spellbook anyways)
+                            """);
+                    }
+
+                    try{
+                        userChoice = scnr.nextInt();
+                        if(userChoice > 0 && userChoice < 3){
+                            decideLoop = false;
+                        }
+                    } catch (InputMismatchException e) {
+                        Tools.readerln("Bad Input.");
+                        scnr.nextLine();
+                    }
+                }
+                if(userChoice == 1){
+                    if(timeline.userClass.getClassType().equals("WARRIOR")){
+                        Tools.readerln("""
+                                Your swords clash with the hard 'Thump' of wood striking each other.
+                                With your current strength, the two of you are at a standstill. Magnus
+                                quickly removes his sword and strikes again, with you quickly moving to
+                                clash in turn. With you both looking for a small opening in the other's
+                                defense, you note that his form is impeccable.
+                                
+                                "All right, all right, lets call it!"
+                                
+                                With neither side able to push through to victory, Magnus acknowledges
+                                your ability as high enough to be his equal.
+                                
+                                "Good work, you did pretty damn good! Not many can take me in a fair fight,
+                                so few that the town actually gave me a little present for whoever can."
+                                
+                                He pulls out a small amulet that seems to...glisten...?
+                                
+                                "They said that it was enchanted with a bit of protection from magic.
+                                Really, it's only supposed to be for the town guard capitan, but I think
+                                you could really use it now."
+                                
+                                You got the 'Defense Amulet'!
+                                """);
+                        event.setItem("Defense Amulet");
+                    } else if(timeline.userClass.getClassType().equals("ARCHER")){
+
+                    }else if(timeline.userClass.getClassType().equals("WIZARD")){
+
+                    }else{
+
+                    }
+                } else{
+                    if(timeline.userClass.getClassType().equals("WARRIOR")){
+                        Tools.readerln("""
+                                With a strategy in mind, you rush towards him. His build is similar to yours,
+                                so it makes sense that his strikes should be just as fast. As his sword begins
+                                to come down on you, you swiftly dodge to your left and strike at his hand.
+                                With a 'THWACK' his sword comes falling down, with Magnus wincing in pain.
+                                
+                                "Argh, God's damn ye!" he says, with an accent coming heavier than usual.
+                                "Ah, that's my loss, and an overwhelming one at that! My bad with the
+                                language, I just don't usually get hit! Cockiness aside, I really thought
+                                I could win since we look to be at similar strengths, but I guess your
+                                mind is just faster than mine.
+                                
+                                "Considering your overwhelming win and damning circumstance, allow this
+                                guard capitan to grant you a small reward!"
+                                
+                                He pulls out a small amulet that seems to...glisten...?
+                                
+                                "They said that it was enchanted with a bit of protection from magic.
+                                Really, it's only supposed to be for the town guard capitan, but I think
+                                you could really use it now."
+                                
+                                You got the 'Defense Amulet'!
+                                """);
+
+                        event.setItem("Defense Amulet");
+
+                    } else if(timeline.userClass.getClassType().equals("ARCHER")){
+
+                    }else if(timeline.userClass.getClassType().equals("WIZARD")){
+
+                    }else{
+
+                    }
+
+                }
+            }
+
+            if (event.getAlly().equals("MAGNUS")) {
+                day2.setAlly("MAGNUS");
+                day2.setLocation("TOWN");
+            }
+
+
         }else{
             Tools.readerln("""
                     
@@ -227,7 +423,11 @@ public class EventOne {
                     the inn while the others laid on the tables in booze-fueled slumbers. Not much
                     left for you to do but sleep.
                     """);
+
+            day2.setLocation("TOWN");
         }
+
+        timeline.addEvent(day2);
     }
 
 
