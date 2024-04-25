@@ -5,11 +5,15 @@ public class EventOne {
 
     public static void Start(Scanner scnr, Day event, EventRecord timeline){
         if(timeline.FindLocation("TOWN")){
+            Town1(scnr, event, timeline);
+        }
+        else{
 
         }
     }
 
     public static void Town1(Scanner scnr, Day event, EventRecord timeline){
+        int userInt;
         Tools.readerln("""
                 You begin your trek towards the distant town, taking you through untouched plains.
                 The patter of feet crushing grass and the rushing wind is all you have to occupy
@@ -69,18 +73,33 @@ public class EventOne {
                 """);
 
         Tools.readerln("Who will you sit with? (Type 1-Cloaked figure, 2-Strong man, 3-Alone)");
-        int userInt = scnr.nextInt();
-        while (userInt < 1 || userInt > 3){
-            Tools.readerln("Unrecognized input. Who will you sit with? (Type 1-Cloaked figure, 2-Strong man, 3-Alone)");
-            userInt = scnr.nextInt();
+
+        boolean decideLoop = true;
+
+        while (decideLoop) {
+            try {
+                userInt = scnr.nextInt();
+                while (userInt < 1 || userInt > 3) {
+                    Tools.readerln("Unrecognized input. Who will you sit with? (Type 1-Cloaked figure, 2-Strong man, 3-Alone)");
+                    userInt = scnr.nextInt();
+                }
+                if (userInt == 1) {
+                    event.setAlly("ALISON");
+                    decideLoop = false;
+                } else if (userInt == 2) {
+                    event.setAlly("MAGNUS");
+                    decideLoop = false;
+                } else {
+                    event.setAlly("ALONE");
+                    decideLoop = false;
+                }
+            } catch (InputMismatchException e){
+                Tools.readerln("Bad input. Who will you sit with? (Type 1-Cloaked figure, 2-Strong man, 3-Alone)");
+                scnr.nextLine();
+            }
         }
-        if(userInt == 1){
-            event.setAlly("ALISON");
-        } else if(userInt == 2){
-            event.setAlly("MAGNUS");
-        } else{
-            event.setAlly("ALONE");
-        }
+
+        TownDecision1(scnr, event,timeline);
     }
 
     public static void TownDecision1(Scanner scnr, Day event, EventRecord timeline){
@@ -210,6 +229,8 @@ public class EventOne {
             if (event.getAlly().equals("ALISON")) {
                 day2.setAlly("ALISON");
                 day2.setLocation("CHURCH");
+            } else{
+                day2.setLocation("TOWN");
             }
 
         }else if (event.getAlly().equals("MAGNUS")){
@@ -320,8 +341,8 @@ public class EventOne {
                             """);
                     }else{
                         Tools.readerln("""
-                            This man is no threat, rendering offensive prayers harmless:
-                            (1 - Attempt to empower yourself, 2 - Utilize your spellbook anyways)
+                            This man is no evildoer, rendering offensive prayers harmless:
+                            (1 - Attempt to empower yourself, 2 - Utilize your spellbook differently)
                             """);
                     }
 
@@ -362,11 +383,88 @@ public class EventOne {
                                 """);
                         event.setItem("Defense Amulet");
                     } else if(timeline.userClass.getClassType().equals("ARCHER")){
-
+                        Tools.readerln("""
+                                Your arrows have been swapped out for blunt tips, trading their piercing
+                                ability for a harder blow. Seeing him sprinting forward, you think that
+                                a solid blow to his knee or shin should send him rolling. With your arrows
+                                nocked, you begin firing your volley. He jumps around in an attempt to
+                                dodge, slowing himself and buying yourself time. In a spark of ingenuity,
+                                you recall the wooden blade you also grabbed, and that it can be used for
+                                more than close quarters combat.
+                                                                
+                                You fire a few more arrows, then grab your blade instead of another arrow.
+                                With a bow in one hand and the sword in the other, you throw your blade
+                                as hard as you can towards his feet. His one-footed hopping was unsuited
+                                for the wide blow, sending his face to meet the dirt.
+                                                                
+                                "Argh, God's damn ye!" he says, with an accent coming heavier than usual.
+                                "Ah, that's my loss, and an overwhelming one at that! My bad with the
+                                language, I just don't usually get hit. Plus, I didn't think you'd chuck
+                                the whole damn sword at me!
+                                                                
+                                "Considering your overwhelming win and damning circumstance, allow this
+                                guard capitan to grant you a small reward!"
+                                
+                                He pulls out a small amulet that seems to...glisten...?
+                                
+                                "They said that it was enchanted with a bit of protection from magic.
+                                Really, it's only supposed to be for the town guard capitan, but I think
+                                you could really use it now."
+                                
+                                You got the 'Defense Amulet'!
+                                
+                                """);
+                        event.setItem("Defense Amulet");
                     }else if(timeline.userClass.getClassType().equals("WIZARD")){
-
+                        Tools.readerln("""
+                                Deeming a far range approach is your best bet, you decide to strike
+                                at him from afar with your non-lethal spells. Shooting large blobs of
+                                water, your attacks actually end up getting slashed or dodged by him.
+                                However, the water trails left behind provide the perfect cover to freeze
+                                him in his tracks. As you cast to freeze, you notice something strange...
+                                The water approaching him is freezing, yet he easily dodges its approach.
+                                However, it should also be freezing on him as well, considering the splashes
+                                from your attacks. With your mind racing from the shock, you don't realize
+                                that he has already closed the distance, with his wooden blade at your throat.
+                                
+                                "Sorry mage, but that's wraps. Don't kick yourself too hard, I have my own
+                                defenses against tricky casters."
+                                
+                                He removes his blade, and begins to stretch himself out.
+                                
+                                "Damn, that was a good fight! I hope you aren't kicking yourself too hard,
+                                because not many can win against the guard capitan of Bethel! Although
+                                you were definitely skilled, so maybe you could have won with a different
+                                strategy."
+                                """);
                     }else{
-
+                        Tools.readerln("""
+                                As the battle begins, you close your eyes and begin chanting. You can feel the
+                                holy force flowing into you, strengthening your power and speed. By no means a
+                                small man yourself, this may be the edge you need to win. When you open your eyes,
+                                you see that the distance as halved, and he is preparing to strike. Faster than the
+                                eye can see, the two of you are locked in a flurry of blows. However, even your mind
+                                was sped up, allowing you to see a small opening in the strikes. With a lightning
+                                fast punch, you utilize your off-hand to punch at his gut, ending the bout.
+                                
+                                "Argh, God's damn ye!" he says, with an accent coming heavier than usual.
+                                "Ah, that's my loss, and an overwhelming one at that! My bad with the
+                                language, I just don't usually get hit. Ouch, my guts really wishes I didn't
+                                eat so much earlier... Ugh..."
+                                
+                                He takes a moment to recompose himself before taking on an honorable tone.
+                                                                
+                                "Considering your overwhelming win and damning circumstance, allow this
+                                guard capitan to grant you a small reward!"
+                                
+                                He pulls out a small amulet that seems to...glisten...?
+                                
+                                "They said that it was enchanted with a bit of protection from magic.
+                                Really, it's only supposed to be for the town guard capitan, but I think
+                                you could really use it now."
+                                
+                                You got the 'Defense Amulet'!
+                                """);
                     }
                 } else{
                     if(timeline.userClass.getClassType().equals("WARRIOR")){
@@ -397,13 +495,80 @@ public class EventOne {
                         event.setItem("Defense Amulet");
 
                     } else if(timeline.userClass.getClassType().equals("ARCHER")){
+                        Tools.readerln("""
+                                Your arrows have been swapped out for blunt tips, trading their piercing
+                                ability for a harder blow. Your sword was also switched for a wooden one,
+                                turning it into more of a blunt weapon. Rather than fire as you usually
+                                do, you opt to feint and take a sneaky attack.
+                                
+                                Firing away while he advances, your arrows are swatted away or dodged.
+                                As he approaches you, he begins to bring his blade down. Expecting this,
+                                you dodge towards him, jumping between his legs and rolling behind him.
+                                As you bring your own sword to strike him, he whips around and clashes
+                                blades with yours. Unable to compete with the strength, your blade goes
+                                flying, and you are forced to surrender.
+                                
+                                "Damn, that was a good fight! I hope you aren't kicking yourself too hard,
+                                because not many can win against the guard capitan of Bethel! Although
+                                you were definitely skilled, so maybe you could have won with a different
+                                strategy."
+                                """);
 
                     }else if(timeline.userClass.getClassType().equals("WIZARD")){
-
+                        Tools.readerln("""
+                                With his speed being shown in full force, it seems your target is willing
+                                to close the distance as fast as possible. A good strategy against a spell
+                                caster, although you've prepared your own strategy against it. As he
+                                approaches, you begin firing rocks and water spouts, which are all dodged
+                                or slashed away. As the distance is nearly closed, you summon a tailwind
+                                behind yourself, speeding yourself and slightly blinding your foe's sight.
+                                Dashing around him, you channel a light shock to your fingertips, which are
+                                now crackling with lighting and at his back. You call the bout your victory.
+                                
+                                With a whistle, Magnus exclaims, "Damn, would you look at that! I didn't
+                                think any spellcasters had the gall to take on a toe-to-toe with a fighter!
+                                And hell, you had luck on your side to boot. Truthfully, I have an amulet
+                                that weakens any spells cast on me, but it must be different if you're
+                                just using magic to blow wind in my face. Maybe I need to reconsider my
+                                opinion of you wizards..."
+                                
+                                "Considering your overwhelming win and damning circumstance, allow this
+                                guard capitan to grant you a small reward!"
+                                
+                                He pulls out a small amulet that seems to...glisten...?
+                                
+                                "They said that it was enchanted with a bit of protection from magic.
+                                Really, it's only supposed to be for the town guard capitan, but I think
+                                you could really use it now."
+                                
+                                You got the 'Defense Amulet'!
+                                """);
+                        event.setItem("Defense Amulet");
                     }else{
-
+                        Tools.readerln("""
+                                You begin charging him in response. In your run, you prepare a flash of light
+                                in the palm of your hand in order to blind him, allowing you to strike with ease.
+                                As the distance is nearly closed, you reveal your hand, shining a brilliant light
+                                in his face, forcing him to close his eyes. However, it seems he also has the
+                                mental fortitude to match his strength, as he doesn't let this slow his advance.
+                                Striking wildly, you are forced into a defensive position. As his sight returns
+                                with wet eyes, his wooden sword finally finds its way through, halting at your
+                                neck.
+                                
+                                "Damn, that was a sneaky move. I didn't think a cleric like yourself even had
+                                the freedom to do so! Anyways, I hope you aren't kicking yourself too hard,
+                                because not many can win against the guard capitan of Bethel! Although
+                                you were definitely skilled, so maybe you could have won with a different
+                                strategy."
+                                """);
                     }
-
+                    Tools.readerln("""
+                            "Say, I interested in your fighting style. If you're right about this Wizard,
+                            I wouldn't mind giving him a piece of my own mind too. Let me join you,
+                            plus there's a chance that we also deal with all of the recent monsters
+                            that the town's been seeing lately! Let's meet up tomorrow, we can look for
+                            fresh gear at some of the shops tomorrow.
+                            """);
                 }
             }
 
