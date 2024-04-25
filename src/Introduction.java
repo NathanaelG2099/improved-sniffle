@@ -8,7 +8,7 @@ public class Introduction {
         Tools.readerln("Here, no one could ascertain their past...", 75);
     }
 
-    public static void Start2(UserCharacter userClass){
+    public static void Start2(UserCharacter userClass, Day day, EventRecord timeline){
         Tools.readerln("As a " + userClass.getClassType() + " you have made your way to the Southern Land. ");
         switch (userClass.getClassType()) {
             case ("WARRIOR"):
@@ -122,9 +122,13 @@ public class Introduction {
                 which seems to remain 5 days by the setting sun. If you could defeat the mage, you
                 could find something to cleanse this curse, although you seem to be outclassed right now.
                 In the distance, you can just barely sight a town. Perhaps they can enlighten you on the
-                strange man in the woods? Much closer, yet in the opposite direction, you see a crossroads
-                that completely avoids the forest, along with a small caravan. Perhaps they can assist you?
+                strange man in the woods?
                 """);
+
+        day.setLocation("TOWN");
+        timeline.addEvent(day);
+
+        Tools.readerln("You make your way to the town.");
     }
 
     public static void StartDecision(Scanner scnr, Day day, EventRecord timeline){

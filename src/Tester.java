@@ -28,11 +28,11 @@ public class Tester {
         System.out.println(charInfo.getClassType());
 
         //Testing days
-        System.out.println(timeline.Inventory());
+        System.out.println(timeline.getInventory());
 
 
         //testing Day System
 
-        System.out.println(timeline.Inventory());
+        System.out.println(timeline.getInventory());
     }
 }

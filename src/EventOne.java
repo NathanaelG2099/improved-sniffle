@@ -381,7 +381,7 @@ public class EventOne {
                                 
                                 You got the 'Defense Amulet'!
                                 """);
-                        event.setItem("Defense Amulet");
+                        timeline.addItem("Defense Amulet");
                     } else if(timeline.userClass.getClassType().equals("ARCHER")){
                         Tools.readerln("""
                                 Your arrows have been swapped out for blunt tips, trading their piercing
@@ -414,7 +414,7 @@ public class EventOne {
                                 You got the 'Defense Amulet'!
                                 
                                 """);
-                        event.setItem("Defense Amulet");
+                        timeline.addItem("Defense Amulet");
                     }else if(timeline.userClass.getClassType().equals("WIZARD")){
                         Tools.readerln("""
                                 Deeming a far range approach is your best bet, you decide to strike
@@ -465,6 +465,7 @@ public class EventOne {
                                 
                                 You got the 'Defense Amulet'!
                                 """);
+                        timeline.addItem("Defense Amulet");
                     }
                 } else{
                     if(timeline.userClass.getClassType().equals("WARRIOR")){
@@ -492,7 +493,7 @@ public class EventOne {
                                 You got the 'Defense Amulet'!
                                 """);
 
-                        event.setItem("Defense Amulet");
+                        timeline.addItem("Defense Amulet");
 
                     } else if(timeline.userClass.getClassType().equals("ARCHER")){
                         Tools.readerln("""
@@ -543,7 +544,7 @@ public class EventOne {
                                 
                                 You got the 'Defense Amulet'!
                                 """);
-                        event.setItem("Defense Amulet");
+                        timeline.addItem("Defense Amulet");
                     }else{
                         Tools.readerln("""
                                 You begin charging him in response. In your run, you prepare a flash of light
@@ -562,14 +563,15 @@ public class EventOne {
                                 strategy."
                                 """);
                     }
-                    Tools.readerln("""
+
+                }
+                Tools.readerln("""
                             "Say, I interested in your fighting style. If you're right about this Wizard,
                             I wouldn't mind giving him a piece of my own mind too. Let me join you,
                             plus there's a chance that we also deal with all of the recent monsters
                             that the town's been seeing lately! Let's meet up tomorrow, we can look for
                             fresh gear at some of the shops tomorrow.
                             """);
-                }
             }
 
             if (event.getAlly().equals("MAGNUS")) {
