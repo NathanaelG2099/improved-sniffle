@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 public class EventRecord {
-    private Day[] events = new Day[5];
+    private Day[] events = new Day[3];
     private int money = 0;
     private int currentDay = 0;
-    private ArrayList<String> inventory;
+    private ArrayList<String> inventory = new ArrayList<>();
     public UserCharacter userClass;
 
     public void addClass(UserCharacter input){
@@ -16,6 +16,10 @@ public class EventRecord {
 
     public void addItem(String newItem){
         inventory.add(newItem);
+    }
+
+    public String getAlly(int day){
+        return events[day].getAlly();
     }
 
     public String getInventory(){
@@ -42,9 +46,9 @@ public class EventRecord {
         }
     }
 
-    public boolean FindLocation(String key){
+    public boolean findLocation(String key){
         for(int i = 0; i < currentDay; i++){
-            if(events[i].getLocation().equals(key)) {
+            if(events[i].getLocation().equalsIgnoreCase(key)) {
                 return true;
             }
         }
@@ -53,6 +57,9 @@ public class EventRecord {
 
     public void addMoney(int newFund){
         money += newFund;
+    }
+    public void loseMoney(int newFund){
+        money -= newFund;
     }
 
     public int getMoney(){

@@ -3,14 +3,6 @@ import java.util.Scanner;
 
 public class EventOne {
 
-    public static void Start(Scanner scnr, Day event, EventRecord timeline){
-        if(timeline.FindLocation("TOWN")){
-            Town1(scnr, event, timeline);
-        }
-        else{
-
-        }
-    }
 
     public static void Town1(Scanner scnr, Day event, EventRecord timeline){
         int userInt;
@@ -70,6 +62,8 @@ public class EventOne {
                 from his wide shoulders and calloused hands. His conversations also seem to be
                 incredibly friendly will all those in attendance, so he may be a local. Otherwise, the
                 room is rather packed, with your only option being to return to your room.
+                
+                This may decide how you spend tomorrow, as well.
                 """);
 
         Tools.readerln("Who will you sit with? (Type 1-Cloaked figure, 2-Strong man, 3-Alone)");
@@ -171,7 +165,7 @@ public class EventOne {
                 Tools.readerln("""
                         You greet the figure, although to no response. Unfortunate, but
                         you won't quit quite yet. You inform them that you had a run in
-                        with what seemed to be a wizard in the forest, yet the figure's
+                        with what seemed to be a wizard in the forest, and the figure's
                         hood falls slightly, revealing a young lady with eyes wide in
                         surprise.
                         
@@ -214,7 +208,7 @@ public class EventOne {
                         on his head. My plan is to gather their support and finally end him, and I
                         wouldn't be opposed to your participation..."
                         
-                        You inform her upon your interaction with the wizard and the curse that he
+                        You inform her upon your interaction's result of the curse that he
                         placed upon you.
                         
                         "Oh dear, well you're in luck. The Church has a chapel half a day's ride,
@@ -223,7 +217,8 @@ public class EventOne {
                         
                         With how late it is and the number of obnoxious drunks rising, it appears
                         this roguish lady is your only chance at aid. You take up her offer, and
-                        agree to meet again tomorrow morning outside the inn at daybreak.
+                        agree to meet again tomorrow morning outside the inn at daybreak. You may
+                        even find more about their past while you're at it.
                         """);
             }
             if (event.getAlly().equals("ALISON")) {

@@ -12,7 +12,7 @@ public class Main {
         timeline.addClass(userClass);
         Introduction.Start2(userClass, day1, timeline);
 
-        EventOne.Start(scnr, day1, timeline);
+        EventOne.Town1(scnr, day1, timeline);
 
     }
 }

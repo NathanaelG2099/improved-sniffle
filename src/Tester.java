@@ -8,17 +8,25 @@ public class Tester {
         timeline.addClass(charInfo);
 
         Day day1 = new Day();
+        Day day2 = new Day("Church", "Alison");
 
 
         //Testing Event 1
         day1.setLocation("TOWN");
         timeline.addEvent(day1);
-        day1.setAlly("MAGNUS");
+        day1.setAlly("ALONE");
 
-        EventOne.Start(scnr, day1, timeline);
+        timeline.addEvent(day2);
+
+
+        //EventOne.Start(scnr, day1, timeline);
         //EventOne.Town1(scnr, day1, timeline);
 
+        EventTwo.Start(scnr, timeline);
 
+        timeline.addItem("Item1");
+
+        timeline.addItem("Item2");
 
 
 
