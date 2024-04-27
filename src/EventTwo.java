@@ -1,26 +1,36 @@
+
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EventTwo {
     public static void Start(Scanner scnr, EventRecord timeline){
-        Day day3 = new Day("Forest", timeline.getAlly(1));
+
         if(timeline.findLocation("CHURCH")){
-            ChurchPath(scnr, day3, timeline);
+            ChurchPath(scnr, timeline);
         }else if(timeline.getAlly(1).equalsIgnoreCase("Magnus")){
-            TownMagnus(scnr, day3, timeline);
+            MagnusPath(scnr, timeline);
         }else{
-            TownAlone(scnr, day3, timeline);
+            TownAlone(timeline);
+            TownMarket(scnr, timeline);
+            AloneFinal();
         }
     }
 
-    public static void ChurchPath(Scanner scnr, Day day, EventRecord timeline){
+    public static void ChurchPath(Scanner scnr, EventRecord timeline){
 
         ChurchTown();
         ChurchArmory(timeline);
-        ChurchBuy(scnr, day, timeline);
+        ChurchBuy(scnr, timeline);
 
+    }
 
+    public static void MagnusPath(Scanner scnr, EventRecord timeline){
 
+        TownMagnus();
+        TownMagnusDecide(scnr, timeline);
+        TownMarket(scnr, timeline);
+        MagnusFinal();
     }
 
 
@@ -168,7 +178,7 @@ public class EventTwo {
                 """);
     }
 
-    public static void ChurchBuy(Scanner scnr, Day day, EventRecord timeline){
+    public static void ChurchBuy(Scanner scnr, EventRecord timeline){
         boolean decideLoop = true;
         int userInt = 0;
         Tools.readerln("""
@@ -201,6 +211,42 @@ public class EventTwo {
         }
         Tools.readerln("Your purchase may come in handy...");
 
+        if(timeline.userClass.getClassType().equalsIgnoreCase("CLERIC")){
+            Tools.readerln("""
+                    CLERIC CHECK
+                    
+                    As you accept your purchased goods, you see the armorer
+                    squint in your direction, reassessing you.
+                    
+                    "Say, you're actually a cleric aren't you? I'm too used to the
+                    colors of our sect that I thought you were just some gaudy
+                    warrior. I actually have another item that you might want,
+                    and don't mind the price for this one. Just make sure you
+                    stamp out Alatar for good with this."
+                    
+                    He pulls out a sword with engravings running from tip to
+                    hilt, along with a small yellow gem placed in the cross
+                    guard. As you reach out to grab it, you realize immediately
+                    that this isn't just a blade, nor is it enchanted. This
+                    has been forged to channel holy light, although you can't
+                    decipher its exact use.
+                    
+                    "He's been able to avoid all of our strike forces so far,
+                    before hiding elsewhere. I don't think he'll run from you
+                    though, if he really has that much interest in his research.
+                    I want to make sure that you're as strong as possible against
+                    him.
+                    
+                    "And since you knew what the blade was for, there's no doubt you
+                    really are a cleric, so I can trust you with that. It's been
+                    blessed to smite evil, so it should work wonders on a man as
+                    cruel as him."
+                    
+                    You gained the blessed blade!
+                    """);
+
+            timeline.addItem("Blessed Blade");
+        }
         Tools.readerln("""
                 "Thank you for your patronage. All of your stuff is in the
                 usual spot Sebas.", says the armorer.
@@ -242,11 +288,361 @@ public class EventTwo {
     }
 
 
-    public static void TownMagnus(Scanner scnr, Day day, EventRecord timeline){
+    public static void TownMagnus(){
+        Tools.readerln("""
+                As you rise from your slumber, you can see the first few rays
+                of sunlight peeking through your window. Recalling your plans
+                with Magnus, you grab your belongings and head out. As you
+                move downstairs, you see the proprietress preparing for the
+                day, allowing you the chance to thank her for all the
+                help she's given you.
+                
+                "Ah don't mention it! We had an empty room anyways. I heard
+                from Magnus that you're heading out together and should be
+                back later, so he already paid for your room tonight. He should
+                be waiting for you outside, so don't keep him waiting!"
+                
+                As you walk outside, you see Magnus leaning against the wall
+                of the building.
+                
+                "Finally, you're up! Let's start walking, and I'll tell you
+                what we need to do today. First, We ought to talk with the town
+                guards, they'll help us out to break into that forest. Then,
+                we should go explore the market for anything useful. Here,
+                people find a lot of odd baubles from their travels, but
+                most of them don't actually know their worth and just look
+                for a quick coin."
+                
+                The two of you walk towards the edge of town, where you see
+                the gate. To the right is the guardhouse, where you can see
+                people coming and going. Magnus begins to shout to a guard
+                with unique dark blue accents to his armor.
+                
+                "Hendrickson! Hey, get this. I got a lead on our problem in
+                the forest and a guy to help us out with it! Can you send out
+                a group of our men to join us tomorrow?"
+                
+                "Captain, tell me what the damn cause is first! You ought to
+                know that you can't just use the town's resources without
+                explaining it first."
+                
+                He turns to you now.
+                
+                "I'm sorry about the captain, he has a habit of skipping the
+                most important parts."
+                
+                "Okay, so get this. There's this really strong wizard guy
+                in the forest, and he cursed this guy for some experiment,
+                and now he has to take out the wizard or else he dies.
+                Plus, the wizard is probably what's making all those
+                monsters in the forest!"
+                
+                "Is this true? Then we need to go get the church to help
+                take him out..."
+                
+                "No time, they're gonna die by tomorrow night, and you
+                know how the church takes time to mobilize for us normal
+                folk. Makes you wish you were either royalty or revered
+                so that they'd work a bit faster. Now, are you going to
+                just let this guy die or help us out? He has a lot of
+                potential, even to my level!"
+                
+                Hendrickson is deep in thought. After a moment of thinking,
+                he calls out to the remaining guards in the building.
+                
+                "Men, I got some new information that can connect to our
+                monster problem. There's a wizard in the forest that seems
+                to be cursing people for some kind of testing. The captain,
+                this person he deemed as strong as him, and I are going to
+                head out tomorrow to deal with it. It seems that we don't
+                have time past tomorrow to save someone's life, so we're
+                going to deal with this one without the church. Any who
+                want to join us in the fight are free to do so."
+                
+                "Yes, Vice-Captain!!" shout the men.
+                
+                "We'll meet you two at the north of town tomorrow morning"
+                Says Hendrickson.
+                
+                "Thanks. Well, now that we got that done, what should we
+                do next? The market is still opening, so let's see if we
+                can earn you some money for equipment!"
+                """);
+    }
+    public static void TownMagnusDecide(Scanner scnr, EventRecord timeline){
+        int userChoice = 0;
+        boolean decideLoop = true;
+
+        Tools.readerln("""
+                As you walk around town, Magnus gave you two good
+                options to make a quick coin or two. Some shops can always
+                use a strong hand to move goods around, while some stores
+                just want people to help spread the word.
+                
+                """);
+        while (decideLoop){
+            try{
+                Tools.readerln("(1 - Provide an extra hand, 2 - Spread the word");
+                userChoice = scnr.nextInt();
+                if(userChoice > 0 && userChoice < 3){
+                    decideLoop = false;
+                }
+            } catch (InputMismatchException e) {
+                Tools.readerln("Bad Input.");
+                scnr.nextLine();
+            }
+        }
+
+        if(userChoice == 1){
+            Tools.readerln("""
+                    Heading to a blacksmith's shop, Magnus is able to set
+                    you up to work for some money. You help carry around
+                    wooden crates, filled with various armaments, ores,
+                    tools, etc. By the end, you've ended up rather sooty,
+                    but you feel like you've gotten a good stretch in.
+                    """);
+        } else{
+            Tools.readerln("""
+                    Heading to the town square, you see many stands being
+                    set up for business. Seeing Magnus, one asks him to
+                    show off a new style of outfit he had made. Instead
+                    of accepting, Magnus pushes the job onto you in
+                    exchange for some money. The two of you then wander
+                    around town, you in the outfit, for an hour, until
+                    returning to the tailor for your reward.
+                    """);
+        }
+        Tools.readerln("""
+                After your hard work, you were paid a handful of coins.
+                
+                """);
+        timeline.addMoney(5);
+        timeline.printMoney();
+        System.out.println();
+
+        Tools.readerln("""
+                With new funds and the sun well in the sky, you and
+                Magnus now head to inspect the market.
+                
+                "Hey, I'm gonna pop away to talk with some friends
+                for a bit, let them know about tomorrow in case it
+                goes bad. Here, that shop right there should be full
+                of scavenged goods, see if any are magical or useful."
+                """);
+    }
+
+    public static void MagnusFinal(){
+        Tools.readerln("""
+                As you walk out of the shop, you see Magnus begin to
+                approach you.
+                
+                "Well damn, it seems like you got a lot! I finished all
+                of my business, so lets hit the hay early. We do have a
+                wizard to hunt."
+                
+                The two of you return to the inn, where you are able to
+                rest with a good meal and a soft bed.
+                """);
+    }
+
+    public static void TownMarket(Scanner scnr, EventRecord timeline){
+        boolean decideLoop = true;
+        boolean buyLoop = true;
+        int userChoice = 0;
+
+        ArrayList<String> shopItems = new ArrayList<>();
+        ArrayList<Integer> shopCosts = new ArrayList<>();
+        shopItems.add("Grey Potion");
+        shopCosts.add(2);
+        shopItems.add("Rusty Blade");
+        shopCosts.add(3);
+        shopItems.add("Agility Potion");
+        shopCosts.add(4);
+        shopItems.add("Defense potion");
+        shopCosts.add(4);
+        shopItems.add("Strength Potion");
+        shopCosts.add(4);
+        shopItems.add("Red Ring");
+        shopCosts.add(5);
+        shopItems.add("Blue Ring");
+        shopCosts.add(5);
+
+        if (timeline.userClass.getClassType().equalsIgnoreCase("WIZARD")){
+            shopItems.add("Rune Stone");
+            shopCosts.add(1);
+            shopItems.add("Bad of stones");
+            shopCosts.add(1);
+            shopItems.add("Stick");
+            shopCosts.add(5);
+            shopItems.add("Book");
+            shopCosts.add(5);
+        }
+
+        Tools.readerln("""
+                As you approach the shop's door, you see the sign.
+                
+                G o l d e n     G o o d s
+                       'No Haggling'
+                       
+                Entering the building, you see rows of tables with
+                various objects, with small stands describing price.
+                It seems objects are sorted by their price, none of
+                which go over five gold pieces. A clerk is sitting
+                in the back of the room, behind the counter. An
+                elderly man, he gives you a small "Welcome".
+                
+                You walk around the store, perusing the various objects.
+                Of what you can find, these are the things that catch
+                your eye and their prices.
+                
+                1) -Nothing for this price
+                2) Bottle of strange grey liquid
+                3) Rusty engraved blade
+                4) Expired off color potions
+                     -Agility
+                     -Defense
+                     -Strength
+                5) Strange Red Ring
+                   Strange Blue Ring
+                
+                """);
+        if(timeline.userClass.getClassType().equalsIgnoreCase("WIZARD")){
+            Tools.readerln("""
+                    WIZARD CHECK
+                    
+                    Your sensitivity to mana allows to you see the mana
+                    coalescing around some objects. Some more objects
+                    appear to be useful.
+                    
+                    1) Small stone (Likely a spell rune)
+                       Bag of stones (Each has a symbol of a weapon)
+                    5) Very thin coiled twig (Wand? Unbelievably rich in mana, yet fragile)
+                       Book of jokes (Why is it magical?)
+                    """);
+        }
+
+        Tools.readerln("You feel that any money you save will go to waste...");
+
+
+        while(buyLoop) {
+            while (decideLoop) {
+                try {
+                    for (int i = 0; i < shopItems.size(); i++) {
+                        System.out.print((i + 1) + ") " + shopItems.get(i));
+                        if (i < shopItems.size() - 1) {
+                            System.out.print(", ");
+                        }
+                    }
+                    System.out.println();
+                    System.out.println("Or input 0 to leave.");
+
+                    userChoice = scnr.nextInt();
+                    scnr.nextLine();
+
+                    if (userChoice > -1 && userChoice <= shopItems.size()) {
+                        decideLoop = false;
+                    } else {
+                        Tools.readerln("Bad input.");
+                    }
+                } catch (InputMismatchException e) {
+                    Tools.readerln("Bad input.");
+                    scnr.nextLine();
+                }
+            }
+
+
+            try {
+                if(shopCosts.get(userChoice-1) > timeline.getMoney()){
+                    Tools.readerln("Insufficient funds.");
+                }else {
+                    timeline.addItem(shopItems.get(userChoice - 1));
+                    timeline.loseMoney(shopCosts.get(userChoice - 1));
+                    System.out.println("You bought " + shopItems.get(userChoice - 1));
+                    shopItems.remove(userChoice - 1);
+                    shopCosts.remove(userChoice - 1);
+
+                    if (timeline.getMoney() < 1 && timeline.userClass.getClassType().equalsIgnoreCase("WIZARD")) {
+                        buyLoop = false;
+                    } else if (timeline.getMoney() < 2 && !(timeline.userClass.getClassType().equalsIgnoreCase("WIZARD"))) {
+                        buyLoop = false;
+                    }
+                }
+                decideLoop = true;
+            } catch (IndexOutOfBoundsException e){
+                buyLoop = false;
+            }
+
+        }
+        Tools.readerln("""
+                "Thank you for your purchase"
+                
+                You walk out of the shop with your goods packed away.
+                """);
 
     }
 
-    public static void TownAlone(Scanner scnr, Day day, EventRecord timeline){
+    public static void TownAlone(EventRecord timeline){
+        Tools.readerln("""
+                You wake up in the inn, only to find that it's already
+                noon. Upon rising and leaving your room, you see
+                that some bustle is already forming for lunch, so
+                you decide not to say goodbye to the innkeepers.
+                
+                As you walk outside, you begin to walk around town as
+                you think to yourself. You recall there being guards
+                inside the inn last night, so maybe you can convince
+                some of them to help you out? It also isn't a bad
+                idea to explore the town and find items that may be
+                useful to you.
+                
+                After some wandering and asking for directions, you
+                are right outside the guardhouse. Inside, you see a
+                man with more blue in his armor than the others,
+                giving the impression that he is leadership. You
+                approach him and ask him for assistance with
+                your wizard problem, sparing no details.
+                
+                "A wizard you say? We really would like to help,
+                but we're getting reports of monsters of our own
+                to deal with, and our captain isn't exactly in a
+                position to aid soon..."
+                
+                You look past him to see the large man from last
+                night, now clad in armor, and looking as miserable
+                as a rotten tomato. Seems like he's hungover, and
+                badly.
+                
+                "We really are sorry, but we have a duty to help
+                the people here first. Here, I can at least spare
+                you a few coins."
+                
+                You gained 3 coins.
+                """);
+        timeline.addMoney(3);
+        timeline.printMoney();
+        System.out.println();
 
+        Tools.readerln("""        
+                Pushed away by the guards, you make your way to a
+                street of shops. Considering your lack of wealth,
+                you decide to look within a discount shop. They
+                pawn off objects from the deceased and odd baubles
+                from ruins, so you never know if they're hiding
+                something valuable.
+                """);
+    }
+
+    public static void AloneFinal(){
+        Tools.readerln("""
+                Now outside with a few new goods, you make your
+                way back to the inn, to see if you might be able
+                to spend another night. However, it seems it's
+                even more full than the night before, and you
+                are told that every room is in use. With no
+                other options, you move to a small clearing at
+                the edge of town. The guards by the gate were
+                helpful in telling you where you could camp,
+                and you spend the night under the sky.
+                """);
     }
 }

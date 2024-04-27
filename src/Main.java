@@ -13,6 +13,7 @@ public class Main {
         Introduction.Start2(userClass, day1, timeline);
 
         EventOne.Town1(scnr, day1, timeline);
+        EventTwo.Start(scnr, timeline);
 
     }
 }

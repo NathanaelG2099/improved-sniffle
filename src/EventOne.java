@@ -159,7 +159,7 @@ public class EventOne {
                             
                             You can tell she didn't appreciate it. But money!!!
                             """);
-                    timeline.addMoney(10);
+                    timeline.addMoney(15);
                 }
             } else{
                 Tools.readerln("""
@@ -268,6 +268,8 @@ public class EventOne {
                     userChoice = scnr.nextInt();
                     if(userChoice > 0 && userChoice < 3){
                         decideLoop = false;
+                    } else{
+                        Tools.readerln("Bad Input. (1 - Accept, 2 - Decline)");
                     }
                 } catch (InputMismatchException e){
                     Tools.readerln("Bad Input. Will you take on the young fighter? (1 - Accept, 2 - Decline)");
@@ -321,7 +323,9 @@ public class EventOne {
                 while(decideLoop){
                     if(timeline.userClass.getClassType().equals("WARRIOR")){
                         Tools.readerln("""
-                            With all your strength, a straightforward approach will work:
+                            WARRIOR CHECK
+                            
+                            Given your strength, you can't imagine this battle going badly for you:
                             (1 - Fearlessly clash swords, 2 - Aim to disarm him)
                             """);
                     }else if(timeline.userClass.getClassType().equals("ARCHER")){

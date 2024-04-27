@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        UserCharacter charInfo = new UserCharacter("CLERIC");
+        UserCharacter charInfo = new UserCharacter("WIZARD");
 
         EventRecord timeline = new EventRecord();
         timeline.addClass(charInfo);
@@ -14,19 +14,23 @@ public class Tester {
         //Testing Event 1
         day1.setLocation("TOWN");
         timeline.addEvent(day1);
-        day1.setAlly("ALONE");
+        day1.setAlly("MAGNUS");
+        timeline.addMoney(10);
+        timeline.printMoney();
+
 
         timeline.addEvent(day2);
 
 
-        //EventOne.Start(scnr, day1, timeline);
+        EventTwo.TownMarket(scnr, timeline);
+        //EventOne.TownDecision1(scnr, day1, timeline);
         //EventOne.Town1(scnr, day1, timeline);
 
-        EventTwo.Start(scnr, timeline);
+        //EventTwo.Start(scnr, timeline);
 
-        timeline.addItem("Item1");
+        //timeline.addItem("Item1");
 
-        timeline.addItem("Item2");
+        //timeline.addItem("Item2");
 
 
 
