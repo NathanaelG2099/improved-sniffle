@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EventTwo {
+    //Manages which path based on previous decisions
     public static void Start(Scanner scnr, EventRecord timeline){
 
         if(timeline.findLocation("CHURCH")){
@@ -11,12 +12,13 @@ public class EventTwo {
         }else if(timeline.getAlly(1).equalsIgnoreCase("Magnus")){
             MagnusPath(scnr, timeline);
         }else{
-            TownAlone(timeline);
+            TownAlone();
             TownMarket(scnr, timeline);
             AloneFinal();
         }
     }
 
+    //Path taken if Alison is ally
     public static void ChurchPath(Scanner scnr, EventRecord timeline){
 
         ChurchTown();
@@ -25,6 +27,7 @@ public class EventTwo {
 
     }
 
+    //Path taken if Magnus is ally
     public static void MagnusPath(Scanner scnr, EventRecord timeline){
 
         TownMagnus();
@@ -35,6 +38,7 @@ public class EventTwo {
 
 
 
+    //First part of ChurchPath, all dialog
     public static void ChurchTown(){
         Tools.readerln("""
                 As you rise from your slumber, you can see the first few rays
@@ -98,6 +102,7 @@ public class EventTwo {
                 """);
     }
 
+    //Second path of church path, money is gained
     public static void ChurchArmory(EventRecord timeline){
         Tools.readerln("""
                 As you enter the armory, you see nothing more than a window
@@ -178,6 +183,7 @@ public class EventTwo {
                 """);
     }
 
+    //Third part of church path, can purchase/gain items
     public static void ChurchBuy(Scanner scnr, EventRecord timeline){
         boolean decideLoop = true;
         int userInt = 0;
@@ -288,6 +294,7 @@ public class EventTwo {
     }
 
 
+    //First part of Magnus Path, all dialog
     public static void TownMagnus(){
         Tools.readerln("""
                 As you rise from your slumber, you can see the first few rays
@@ -369,6 +376,8 @@ public class EventTwo {
                 can earn you some money for equipment!"
                 """);
     }
+
+    //Second part of magnus path, grants money
     public static void TownMagnusDecide(Scanner scnr, EventRecord timeline){
         int userChoice = 0;
         boolean decideLoop = true;
@@ -431,6 +440,7 @@ public class EventTwo {
                 """);
     }
 
+    //Last part of Magnus path, all dialog
     public static void MagnusFinal(){
         Tools.readerln("""
                 As you walk out of the shop, you see Magnus begin to
@@ -445,6 +455,7 @@ public class EventTwo {
                 """);
     }
 
+    //Town Shop, used by Magnus Path (3rd part) and Along Path (2nd part)
     public static void TownMarket(Scanner scnr, EventRecord timeline){
         boolean decideLoop = true;
         boolean buyLoop = true;
@@ -546,7 +557,7 @@ public class EventTwo {
 
 
             try {
-                if(shopCosts.get(userChoice-1) > timeline.getMoney()){
+                if(shopCosts.get(userChoice-1) >= timeline.getMoney()){
                     Tools.readerln("Insufficient funds.");
                 }else {
                     timeline.addItem(shopItems.get(userChoice - 1));
@@ -575,7 +586,8 @@ public class EventTwo {
 
     }
 
-    public static void TownAlone(EventRecord timeline){
+    //First part of Alone Path, all dialog
+    public static void TownAlone(){
         Tools.readerln("""
                 You wake up in the inn, only to find that it's already
                 noon. Upon rising and leaving your room, you see
@@ -620,6 +632,7 @@ public class EventTwo {
                 """);
     }
 
+    //Last part of Alone path, all dialog
     public static void AloneFinal(){
         Tools.readerln("""
                 Now outside with a few new goods, you make your

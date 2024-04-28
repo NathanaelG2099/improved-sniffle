@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class Introduction {
+    //Intro to game
     public static void Start(){
         Tools.reader("\n" + "Welcome to the land of Noct, named for the continent's shape resembling a crescent moon." + "\n" +
                 "The land is hailed as the cradle of Mana, with no shortage of trailblazing adventurers seeking its treasure." +"\n"+
@@ -8,6 +9,7 @@ public class Introduction {
         Tools.readerln("Here, no one could ascertain their past...", 75);
     }
 
+    //First user choice, pick a class & Dialog
     public static void Start2(UserCharacter userClass, Day day, EventRecord timeline){
         Tools.readerln("As a " + userClass.getClassType() + " you have made your way to the Southern Land. ");
         switch (userClass.getClassType()) {
@@ -134,26 +136,4 @@ public class Introduction {
         Tools.readerln("You make your way to the town.");
     }
 
-    public static void StartDecision(Scanner scnr, Day day, EventRecord timeline){
-        String input;
-        Tools.readerln("""
-                Will you travel to the (Town) or the (Crossroads)?
-                """);
-        input = scnr.next();
-        while(!input.equalsIgnoreCase("town") && !input.equalsIgnoreCase("crossroads")){
-            Tools.readerln("Please Try again.");
-            Tools.readerln("Will you travel to the (Town) or the (Crossroads)?");
-            input = scnr.next();
-        }
-
-        if(input.equalsIgnoreCase("town")){
-            day.setLocation("TOWN");
-        }else{
-            day.setLocation("CROSSROADS");
-        }
-
-        timeline.addEvent(day);
-
-        Tools.readerln("You make your way to the " + day.getLocation());
-    }
 }

@@ -1,17 +1,6 @@
 public class Tools {
 
-    public static void reader(String str){
-        int rate = 50;
-
-        for(int i = 0; i < str.length(); i++){
-            System.out.print(str.charAt(i));
-            try {
-                Thread.sleep(rate);
-            }catch (InterruptedException e){
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
+    //Reader method to slow output
     public static void reader(String str, int newRate){
         int rate = newRate;
 
@@ -26,9 +15,9 @@ public class Tools {
     }
 
 
-    //Output a string at a rate of 75ms + newLine
+    //Output a string at a rate of 50ms + newLine
     public static void readerln(String str){
-        int rate = 5;
+        int rate = 50;
 
         for(int i = 0; i < str.length(); i++){
             System.out.print(str.charAt(i));

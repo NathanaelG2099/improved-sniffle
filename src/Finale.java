@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Finale {
 
+    //Decides which dialog based on previous decisions
     public static void Start(Scanner scnr, EventRecord timeline){
         if(timeline.findLocation("CHURCH")){
             AlisonPath();
@@ -17,6 +18,7 @@ public class Finale {
 
     }
 
+    //Intro to finale for Alison Path, all dialog
     public static void AlisonPath(){
         Tools.readerln("""
                 Awakening in the inn, you meet up with Alison and Sebas
@@ -112,6 +114,7 @@ public class Finale {
                 """);
     }
 
+    //decisions to use items for finale, used by all paths
     public static void WizardFight(Scanner scnr, EventRecord timeline){
         boolean decideLoop = true;
         int userInt = 0;
@@ -455,6 +458,7 @@ public class Finale {
 
     }
 
+    //Intro to finale for Magnus Path, all dialog
     public static void MagnusPath(){
         Tools.readerln("""
                 Awakening in the inn, you meet up with Magnus
@@ -549,6 +553,7 @@ public class Finale {
 
     }
 
+    //Intro to finale for alone path, has decision making
     public static void AlonePath(Scanner scnr, EventRecord timeline){
         Tools.readerln("""
                 Awakening early in your encampment, you only have the goal
@@ -611,7 +616,7 @@ public class Finale {
                 scnr.nextLine();
             }
         }
-        timeline.loseItem(userInt);
+        timeline.loseItem(userInt-1);
 
         Tools.readerln("""
                 Upon seeing your item, the wizard laughs, so hard that

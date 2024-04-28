@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class UserCharacter {
     private String classType;
 
+    //Method to describe user class options  & pick one
     public UserCharacter(Scanner scnr){
         boolean confirm = false;
         char input;
@@ -94,10 +95,12 @@ public class UserCharacter {
         System.out.println();
     }
 
+    //Method to expedite adding user class (TESTING ONLY)
     public UserCharacter(String userClass){
         classType = userClass;
     }
 
+    //Return the class type as string
     public String getClassType() {
         return classType;
     }

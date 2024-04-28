@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class EventOne {
 
 
+    //Core of the first event. Provides context of town and leads to ally decision
     public static void Town1(Scanner scnr, Day event, EventRecord timeline){
         int userInt;
         Tools.readerln("""
@@ -96,6 +97,8 @@ public class EventOne {
         TownDecision1(scnr, event,timeline);
     }
 
+    //Town decision, Gives class specific options relating to the ally chosen.
+    //Also assigns the location and ally for next day object.
     public static void TownDecision1(Scanner scnr, Day event, EventRecord timeline){
         int userChoice = 0;
         boolean decideLoop = true;
