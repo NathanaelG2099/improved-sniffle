@@ -196,7 +196,13 @@ public class EventOne {
                         
                         She spits in your direction and leaves. At the very least, it seems the lady is
                         learned in revealing one's disapproval. Although your information was certainly
-                        lacking, perhaps these newfound funds could help bankroll your travel?
+                        lacking, perhaps these newfound funds could help bankroll your travel? With
+                        the inn dying down, you decide to return to your room and slumber.
+                        
+                        
+                        
+                        
+                        
                         """);
                 event.setAlly("ALONE");
             }

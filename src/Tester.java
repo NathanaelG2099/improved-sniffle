@@ -19,10 +19,14 @@ public class Tester {
         timeline.printMoney();
 
 
-        timeline.addEvent(day2);
+        timeline.addItem("Amulet");
+        timeline.addItem("CoBolt");
+        timeline.addItem("Blessed Blade");
+
+        Finale.WizardFight(scnr, timeline);
 
 
-        EventTwo.TownMarket(scnr, timeline);
+        //EventTwo.TownMarket(scnr, timeline);
         //EventOne.TownDecision1(scnr, day1, timeline);
         //EventOne.Town1(scnr, day1, timeline);
 

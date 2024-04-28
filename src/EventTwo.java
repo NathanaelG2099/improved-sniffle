@@ -470,10 +470,6 @@ public class EventTwo {
         if (timeline.userClass.getClassType().equalsIgnoreCase("WIZARD")){
             shopItems.add("Rune Stone");
             shopCosts.add(1);
-            shopItems.add("Bad of stones");
-            shopCosts.add(1);
-            shopItems.add("Stick");
-            shopCosts.add(5);
             shopItems.add("Book");
             shopCosts.add(5);
         }
@@ -515,9 +511,7 @@ public class EventTwo {
                     appear to be useful.
                     
                     1) Small stone (Likely a spell rune)
-                       Bag of stones (Each has a symbol of a weapon)
-                    5) Very thin coiled twig (Wand? Unbelievably rich in mana, yet fragile)
-                       Book of jokes (Why is it magical?)
+                    5) Book of jokes (Why is it magical?)
                     """);
         }
 
@@ -613,14 +607,8 @@ public class EventTwo {
                 badly.
                 
                 "We really are sorry, but we have a duty to help
-                the people here first. Here, I can at least spare
-                you a few coins."
-                
-                You gained 3 coins.
+                the people here first."
                 """);
-        timeline.addMoney(3);
-        timeline.printMoney();
-        System.out.println();
 
         Tools.readerln("""        
                 Pushed away by the guards, you make your way to a
@@ -642,7 +630,11 @@ public class EventTwo {
                 other options, you move to a small clearing at
                 the edge of town. The guards by the gate were
                 helpful in telling you where you could camp,
-                and you spend the night under the sky.
+                and you spend the night under the sky. Tomorrow
+                may be your last day of life, so you need to
+                do all you can to rid yourself of this curse.
+                
+                
                 """);
     }
 }

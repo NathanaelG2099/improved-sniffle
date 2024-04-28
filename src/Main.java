@@ -15,5 +15,7 @@ public class Main {
         EventOne.Town1(scnr, day1, timeline);
         EventTwo.Start(scnr, timeline);
 
+        System.out.println(timeline.getInventory());
+        timeline.printMoney();
     }
 }

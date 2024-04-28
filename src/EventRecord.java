@@ -25,12 +25,27 @@ public class EventRecord {
     public String getInventory(){
         String output = "Inventory: ";
         for(int i = 0; i < inventory.size(); i++){
-            output += inventory.get(i);
+            output += (i+1) + ") " + inventory.get(i);
             if(i != inventory.size()-1){
                 output += ", ";
             }
         }
         return output;
+    }
+    public int InventorySize(){
+        return inventory.size();
+    }
+
+    public boolean InventoryIsEmpty(){
+        return inventory.isEmpty();
+    }
+
+    public void loseItem(int index){
+        inventory.remove(index);
+    }
+
+    public String getInventoryIndex(int index){
+        return inventory.get(index-1);
     }
 
     public boolean findInventory(String key) {

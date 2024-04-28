@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Introduction {
     public static void Start(){
-        Tools.reader("Welcome to the land of Noct, named for the continent's shape resembling a crescent moon." + "\n" +
+        Tools.reader("\n" + "Welcome to the land of Noct, named for the continent's shape resembling a crescent moon." + "\n" +
                 "The land is hailed as the cradle of Mana, with no shortage of trailblazing adventurers seeking its treasure." +"\n"+
                 "In this story, we come across one such adventurer near the southern edge, where hardship is common" + "\n" +
                 "and outside information is scarce. ", 25);
@@ -42,6 +42,7 @@ public class Introduction {
                 break;
         }
         Tools.readerln("""
+                
                 As you travel, you come across a forest that is unmarked upon your map. Such a
                 strange place surely requires deeper investigation, as it may bring you closer
                 to your goals. The trees are taller than normal, and are shaded a remarkably
@@ -103,7 +104,9 @@ public class Introduction {
                 "Well, no point in keeping up this masquerade now is there? Here's how it's
                 going to go down. You are now my test subject! Lucky you. There's 2 outcomes:
                 You can become the key to time travelling... or you die a horrible death! I
-                believe it should give you about 3 days. Do come back and let me know the result..."
+                believe it should give you about 3 days. I also want to see how it affects
+                you at the end, so I'll give you a little info. Kill me, and the curse fades!
+                Do come back and show me your desperation..."
                 
                 Your body refuses to heed your command as the wizard begins his incantation.
                 The spell sounds both otherworldly and like gargles, with no sign of recognizable
